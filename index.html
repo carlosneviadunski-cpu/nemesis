@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Joey Drew Studios - Projeto Escolar</title>
+  <title>Joey Drew Studios - Arquivo de Sobreviventes e Monstros</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -22,85 +22,21 @@
 
   <main class="container">
 
-    <!-- Botão de Acesso -->
+    <!-- Botão de Acesso em Tela Cheia -->
     <section class="portal-section">
       <button id="fullscreen-btn" onclick="openGameLink()" class="portal-button">
         ⚡ Acessar Arena Joey Drew Studios (Tela Cheia) ⚡
       </button>
     </section>
 
-    <!-- Galeria dos Monstros da Internet -->
+    <!-- LINHA 1: Sobreviventes (4 Colunas) -->
     <section class="card-section">
-      <h2>Monstros da Internet</h2>
-      <div class="grid-container">
+      <h2>Linha 1 — Sobreviventes</h2>
+      <div class="grid-row">
 
-        <div class="grid-card">
-          <div class="thumb-frame">
-            <svg viewBox="0 0 100 100" class="mini-icon">
-              <path d="M50 15 C30 15 20 35 20 50 C20 70 35 85 50 85 C65 85 80 70 80 50 C80 35 70 15 50 15 Z" fill="currentColor"/>
-              <circle cx="38" cy="45" r="5" fill="#000"/>
-              <circle cx="62" cy="45" r="5" fill="#000"/>
-              <path d="M 35 65 Q 50 80 65 65" stroke="#000" stroke-width="4" fill="none"/>
-            </svg>
-          </div>
-          <h3>Ink Demon (Bendy)</h3>
-          <span class="tag danger">Nível: Extremo</span>
-          <p class="desc">Entidade de tinta pura sem alma.</p>
-        </div>
-
-        <div class="grid-card">
-          <div class="thumb-frame">
-            <svg viewBox="0 0 100 100" class="mini-icon">
-              <rect x="35" y="15" width="30" height="70" rx="5" fill="currentColor"/>
-              <line x1="20" y1="40" x2="80" y2="40" stroke="currentColor" stroke-width="6"/>
-            </svg>
-          </div>
-          <h3>Slenderman</h3>
-          <span class="tag high">Nível: Alto</span>
-          <p class="desc">Entidade sem rosto que espreita florestas.</p>
-        </div>
-
-        <div class="grid-card">
-          <div class="thumb-frame">
-            <svg viewBox="0 0 100 100" class="mini-icon">
-              <line x1="50" y1="30" x2="50" y2="90" stroke="currentColor" stroke-width="8"/>
-              <polygon points="30,20 50,35 30,50" fill="currentColor"/>
-              <polygon points="70,20 50,35 70,50" fill="currentColor"/>
-            </svg>
-          </div>
-          <h3>Siren Head</h3>
-          <span class="tag high">Nível: Alto</span>
-          <p class="desc">Gigante com alto-falantes no lugar da cabeça.</p>
-        </div>
-
-        <div class="grid-card">
-          <div class="thumb-frame">
-            <svg viewBox="0 0 100 100" class="mini-icon">
-              <rect x="25" y="25" width="50" height="50" fill="currentColor"/>
-              <rect x="35" y="40" width="10" height="8" fill="#fff"/>
-              <rect x="55" y="40" width="10" height="8" fill="#fff"/>
-            </svg>
-          </div>
-          <h3>Herobrine</h3>
-          <span class="tag medium">Nível: Médio</span>
-          <p class="desc">Fantasma de olhos brancos do Minecraft.</p>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- Galeria dos Sobreviventes -->
-    <section class="card-section">
-      <h2>Sobreviventes do Estúdio</h2>
-      <div class="grid-container">
-
-        <div class="grid-card">
-          <div class="thumb-frame">
-            <svg viewBox="0 0 100 100" class="mini-icon">
-              <circle cx="50" cy="35" r="20" fill="currentColor"/>
-              <path d="M 20 80 C 20 60, 35 50, 50 50 C 65 50, 80 60, 80 80 Z" fill="currentColor"/>
-            </svg>
-          </div>
+        <div class="grid-card survivor">
+          <div class="category-badge">Sobrevivente</div>
+          <img src="https://m.media-amazon.com/images/M/MV5BN2E1MGFmYTYtYzkxMi00M2IwLWE0NTItYzVkMzI3ZWYwMzU2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Henry Stein" class="small-thumb">
           <h3>Henry Stein</h3>
           <p class="role">Desenhista Principal</p>
           <div class="phone-box">
@@ -108,13 +44,9 @@
           </div>
         </div>
 
-        <div class="grid-card">
-          <div class="thumb-frame">
-            <svg viewBox="0 0 100 100" class="mini-icon">
-              <circle cx="50" cy="35" r="20" fill="currentColor"/>
-              <path d="M 20 80 C 20 60, 35 50, 50 50 C 65 50, 80 60, 80 80 Z" fill="currentColor"/>
-            </svg>
-          </div>
+        <div class="grid-card survivor">
+          <div class="category-badge">Sobrevivente</div>
+          <img src="https://static.wikia.nocookie.net/bendytim/images/3/36/Allison_Angel_BATDR.png" alt="Allison Pendle" class="small-thumb">
           <h3>Allison Pendle</h3>
           <p class="role">Atriz de Dublagem</p>
           <div class="phone-box">
@@ -122,39 +54,6 @@
           </div>
         </div>
 
-        <div class="grid-card">
-          <div class="thumb-frame">
-            <svg viewBox="0 0 100 100" class="mini-icon">
-              <circle cx="50" cy="35" r="20" fill="currentColor"/>
-              <path d="M 20 80 C 20 60, 35 50, 50 50 C 65 50, 80 60, 80 80 Z" fill="currentColor"/>
-            </svg>
-          </div>
-          <h3>Tom</h3>
-          <p class="role">Mecânico / Boris</p>
-          <div class="phone-box">
-            <span id="phone-tom" class="phone-number">...</span>
-          </div>
-        </div>
-
-        <div class="grid-card">
-          <div class="thumb-frame">
-            <svg viewBox="0 0 100 100" class="mini-icon">
-              <circle cx="50" cy="35" r="20" fill="currentColor"/>
-              <path d="M 20 80 C 20 60, 35 50, 50 50 C 65 50, 80 60, 80 80 Z" fill="currentColor"/>
-            </svg>
-          </div>
-          <h3>Audrey Drew</h3>
-          <p class="role">Animadora</p>
-          <div class="phone-box">
-            <span id="phone-audrey" class="phone-number">...</span>
-          </div>
-        </div>
-
-      </div>
-    </section>
-
-  </main>
-
-  <script src="script.js"></script>
-</body>
-</html>
+        <div class="grid-card survivor">
+          <div class="category-badge">Sobrevivente</div>
+          <img src="

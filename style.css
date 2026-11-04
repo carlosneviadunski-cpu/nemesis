@@ -8,6 +8,8 @@
   --accent: #c48b3f;
   --accent-hover: #e0a352;
   --border-color: #8c6333;
+  --badge-survivor: #597300;
+  --badge-monster: #8b0000;
 }
 
 [data-theme="dark"] {
@@ -19,6 +21,8 @@
   --accent: #8b0000;
   --accent-hover: #b30000;
   --border-color: #404040;
+  --badge-survivor: #2d6a4f;
+  --badge-monster: #b30000;
 }
 
 [data-theme="yellow"] {
@@ -30,6 +34,8 @@
   --accent: #d49b00;
   --accent-hover: #b58400;
   --border-color: #594406;
+  --badge-survivor: #386641;
+  --badge-monster: #a71d2a;
 }
 
 * {
@@ -48,7 +54,7 @@ body {
 
 .studio-header {
   text-align: center;
-  padding: 25px 15px;
+  padding: 20px 15px;
   background-color: rgba(0, 0, 0, 0.3);
   border-bottom: 3px solid var(--border-color);
 }
@@ -125,15 +131,15 @@ body {
   padding-bottom: 6px;
 }
 
-/* ALINHAMENTO EM LINHAS E COLUNAS (GRID UNIFORME) */
-.grid-container {
+/* ESTRUTURA DE 4 COLUNAS EXATAS POR LINHA */
+.grid-row {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 15px;
 }
 
 @media (max-width: 768px) {
-  .grid-container {
+  .grid-row {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -143,67 +149,68 @@ body {
   color: var(--text-main);
   border: 2px solid var(--border-color);
   border-radius: 8px;
-  padding: 12px;
+  padding: 10px;
   text-align: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  position: relative;
 }
 
-/* IMAGENS MENORES (QUADRADAS 55x55px) */
-.thumb-frame {
-  width: 55px;
-  height: 55px;
-  border-radius: 8px;
-  background-color: var(--accent);
+/* DISTINÇÃO ENTRE SOBREVIENTE E MONSTRO */
+.category-badge {
+  font-size: 0.65rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  background-color: var(--badge-survivor);
   color: #fff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-  border: 2px solid var(--border-color);
-  overflow: hidden;
+  padding: 2px 8px;
+  border-radius: 10px;
+  margin-bottom: 8px;
 }
 
-.mini-icon {
-  width: 35px;
-  height: 35px;
+.category-badge.monster-badge {
+  background-color: var(--badge-monster);
+}
+
+/* IMAGENS BEM MENORES (45x45px) COM BORDA E ENCAIXE REDONDO */
+.small-thumb {
+  width: 45px;
+  height: 45px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--border-color);
+  margin-bottom: 8px;
+  background-color: #000;
 }
 
 .grid-card h3 {
-  font-size: 1rem;
+  font-size: 0.95rem;
   margin-bottom: 4px;
 }
 
-.role, .desc {
-  font-size: 0.8rem;
+.role {
+  font-size: 0.75rem;
   opacity: 0.85;
   margin-bottom: 8px;
 }
 
-.tag {
-  font-size: 0.7rem;
-  font-weight: bold;
-  padding: 2px 6px;
-  border-radius: 4px;
-  color: #fff;
-  margin-bottom: 6px;
-  display: inline-block;
-}
-
-.tag.danger { background-color: #b30000; }
-.tag.high { background-color: #d46b00; }
-.tag.medium { background-color: #597300; }
-
 .phone-box {
   background-color: rgba(0, 0, 0, 0.08);
-  padding: 5px 8px;
+  padding: 4px 6px;
   border-radius: 4px;
   width: 100%;
 }
 
 .phone-number {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   font-weight: bold;
+}
+
+.danger-tag {
+  font-size: 0.7rem;
+  font-weight: bold;
+  color: #b30000;
+  margin-top: 4px;
 }
