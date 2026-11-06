@@ -1,216 +1,94 @@
-/* PALETAS DE CORES */
-[data-theme="sepia"] {
-  --bg-color: #2b1f14;
-  --card-bg: #3d2d1e;
-  --panel-bg: #f5e5c9;
-  --text-main: #36220f;
-  --text-light: #f5e5c9;
-  --accent: #c48b3f;
-  --accent-hover: #e0a352;
-  --border-color: #8c6333;
-  --badge-survivor: #597300;
-  --badge-monster: #8b0000;
+*{
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body{
+font-family: "Poppins", sans-serif;
+}
+header{
+background-color: #424e61;
+color: white;
+width: 100%;
+padding: 20px;
+}
+.cabecalho-itens{
+max-width: 1980px;
+margin: 0 auto;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.cabecalho-imagem{
+width: 10%;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+}
+.titulo_site{
+padding: 50px;
+text-align: center;
+width: 50%;
+font: 30px;
+}
+.sociais{
+display: flex;
+justify-content: flex-end;
+width: 25%;
+padding-right: 30px;
+}
+.banner1{
+display: flex;
+justify-content: center;
+}
+.estudante_titulo{
+padding: 50px;
+text-align: center;
+
+}
+.estudante-nome{
+text-align: center;
+}
+.estudante-imagem{
+width: 120px;
+}
+.estudante-icone{
+width: 38px;
+padding: 4px 8px;
+}
+.estudante{
+background-image: background-color(#faae43);
+padding: 24px 0;
 }
 
-[data-theme="dark"] {
-  --bg-color: #0d0d0d;
-  --card-bg: #1a1a1a;
-  --panel-bg: #262626;
-  --text-main: #e6e6e6;
-  --text-light: #ffffff;
-  --accent: #8b0000;
-  --accent-hover: #b30000;
-  --border-color: #404040;
-  --badge-survivor: #2d6a4f;
-  --badge-monster: #b30000;
+.estudante.div{
+text-align: center;
+padding: 24px 0;
+}
+.estudantes_todos{
+display: flex;
+justify-content: space-around;
+}
+.escola{
+background-image: linear-gradient(#40A2E3,#7FC2EF);
+color: white;
+display: flex;
+justify-content:center;
+padding: 24px 0;
+text-align:center;
+display:block;
+}
+.escola-titulo{
+padding: 50px;
+text-align: center;
+}
+.logo_rodape{
+height: 80px;
+padding: 12px 0;
+
 }
 
-[data-theme="yellow"] {
-  --bg-color: #f7e08b;
-  --card-bg: #edd06d;
-  --panel-bg: #fff5d6;
-  --text-main: #1a1405;
-  --text-light: #1a1405;
-  --accent: #d49b00;
-  --accent-hover: #b58400;
-  --border-color: #594406;
-  --badge-survivor: #386641;
-  --badge-monster: #a71d2a;
-}
-
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-
-body {
-  background-color: var(--bg-color);
-  color: var(--text-light);
-  transition: background-color 0.4s ease;
-  padding-bottom: 40px;
-}
-
-.studio-header {
-  text-align: center;
-  padding: 20px 15px;
-  background-color: rgba(0, 0, 0, 0.3);
-  border-bottom: 3px solid var(--border-color);
-}
-
-.studio-header h1 {
-  font-size: 2.2rem;
-  letter-spacing: 2px;
-}
-
-.subtitle {
-  font-style: italic;
-  opacity: 0.9;
-  margin-bottom: 15px;
-}
-
-.palette-picker {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  flex-wrap: wrap;
-}
-
-.btn-theme {
-  padding: 6px 14px;
-  border: 2px solid #000;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 4px;
-}
-
-.btn-sepia { background-color: #c48b3f; color: #fff; }
-.btn-dark { background-color: #1a1a1a; color: #fff; border-color: #8b0000; }
-.btn-yellow { background-color: #f7e08b; color: #000; }
-
-.container {
-  max-width: 1000px;
-  margin: 25px auto;
-  padding: 0 15px;
-}
-
-.portal-section {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.portal-button {
-  background-color: var(--accent);
-  color: #fff;
-  font-size: 1.1rem;
-  font-weight: bold;
-  padding: 15px 25px;
-  border: 3px solid var(--border-color);
-  border-radius: 8px;
-  cursor: pointer;
-  box-shadow: 0 5px 0px var(--border-color);
-}
-
-.portal-button:hover {
-  background-color: var(--accent-hover);
-}
-
-.card-section {
-  background-color: var(--card-bg);
-  padding: 20px;
-  border-radius: 10px;
-  border: 2px solid var(--border-color);
-  margin-bottom: 25px;
-}
-
-.card-section h2 {
-  margin-bottom: 15px;
-  border-bottom: 2px solid var(--border-color);
-  padding-bottom: 6px;
-}
-
-/* ESTRUTURA DE 4 COLUNAS EXATAS POR LINHA */
-.grid-row {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 15px;
-}
-
-@media (max-width: 768px) {
-  .grid-row {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-.grid-card {
-  background-color: var(--panel-bg);
-  color: var(--text-main);
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  padding: 10px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  position: relative;
-}
-
-/* DISTINÇÃO ENTRE SOBREVIENTE E MONSTRO */
-.category-badge {
-  font-size: 0.65rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  background-color: var(--badge-survivor);
-  color: #fff;
-  padding: 2px 8px;
-  border-radius: 10px;
-  margin-bottom: 8px;
-}
-
-.category-badge.monster-badge {
-  background-color: var(--badge-monster);
-}
-
-/* IMAGENS BEM MENORES (45x45px) COM BORDA E ENCAIXE REDONDO */
-.small-thumb {
-  width: 45px;
-  height: 45px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 2px solid var(--border-color);
-  margin-bottom: 8px;
-  background-color: #000;
-}
-
-.grid-card h3 {
-  font-size: 0.95rem;
-  margin-bottom: 4px;
-}
-
-.role {
-  font-size: 0.75rem;
-  opacity: 0.85;
-  margin-bottom: 8px;
-}
-
-.phone-box {
-  background-color: rgba(0, 0, 0, 0.08);
-  padding: 4px 6px;
-  border-radius: 4px;
-  width: 100%;
-}
-
-.phone-number {
-  font-size: 0.75rem;
-  font-weight: bold;
-}
-
-.danger-tag {
-  font-size: 0.7rem;
-  font-weight: bold;
-  color: #b30000;
-  margin-top: 4px;
+.link{
+color: #ffffff;
+text-decoration: none;
 }
