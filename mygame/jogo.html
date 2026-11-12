@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#05070b">
+<meta name="mobile-web-app-capable" content="yes">
+<title>ARENA AI — Diep Solo · PC & Celular</title>
+<link rel="stylesheet" href="jogo.css">
+</head>
+<body>
+<canvas id="gameCanvas"></canvas>
+
+<div id="uiLayer" class="ui-layer"></div>
+
+<div id="startScreen" class="screen active">
+  <div class="card">
+    <div class="header">
+      <div class="logo"><div class="tank-core"></div><div class="tank-barrel"></div></div>
+      <div class="title"><div class="tag">Diep Solo · Forja Procedural</div><h1>ARENA AI</h1><div class="best" id="bestStart">Melhor onda: —</div></div>
+    </div>
+    <p class="desc">Sobreviva a ondas infinitas de monstros geométricos com <span class="badge">IA comportamental</span> (atacar, recuar e esquivar). Colete materiais e funda-os em <span class="badge">3 a 5 itens</span> para criar armas únicas — os canos do tanque mudam com cada criação.</p>
+    <div class="chips" id="enemyChips"></div>
+    <div class="platform-picker">
+      <div class="platform-btn active" id="platPc"><span class="ico">🖥️</span><div><div class="name">PC</div><div class="sub">Teclado + mouse</div></div></div>
+      <div class="platform-btn" id="platTouch"><span class="ico">📱</span><div><div class="name">Celular / Tablet</div><div class="sub">Joysticks de toque</div></div></div>
+    </div>
+    <div class="controls-panel" id="controlsPc">
+      <div class="cp-title">Controles (PC)</div>
+      <div class="cp-grid"><div>Mover</div><kbd>W A S D</kbd></div>
+      <div class="cp-grid"><div>Mirar</div><kbd>Mouse</kbd></div>
+      <div class="cp-grid"><div>Atirar</div><kbd>Clique</kbd></div>
+      <div class="cp-grid"><div>Impulso</div><kbd>Espaço / Shift</kbd></div>
+      <div class="cp-grid"><div>Trocar arma</div><kbd>R / 1-9</kbd></div>
+      <div class="cp-grid"><div>Mira automática</div><kbd>Q</kbd></div>
+      <div class="cp-grid"><div>Tiro automático</div><kbd>E</kbd></div>
+      <div class="cp-grid"><div>Estados da IA</div><kbd>H</kbd></div>
+      <div class="cp-grid"><div>Números de dano</div><kbd>D</kbd></div>
+      <div class="cp-grid"><div>Bestiário</div><kbd>B</kbd></div>
+      <div class="cp-grid"><div>Fundição</div><kbd>F</kbd></div>
+      <div class="cp-grid"><div>Pausa</div><kbd>Esc</kbd></div>
+    </div>
+    <div class="controls-panel" id="controlsTouch" style="display:none">
+      <div class="cp-title">Controles (Toque)</div>
+      <div class="cp-grid"><div>Mover</div><kbd>Joystick esquerda</kbd></div>
+      <div class="cp-grid"><div>Mira / Atirar</div><kbd>Joystick direita</kbd></div>
+      <div class="cp-grid"><div>Impulso</div><kbd>Botão ciano</kbd></div>
+      <div class="cp-grid"><div>Mira auto</div><kbd>Alternar</kbd></div>
+      <div class="cp-grid"><div>Tiro auto</div><kbd>Ligado por padrão</kbd></div>
+    </div>
+    <div class="toggles">
+      <label class="toggle">Mira automática<span id="tAutoAim">ON</span></label>
+      <label class="toggle">Tiro automático<span id="tAutoFire">ON</span></label>
+      <label class="toggle">Estados da IA<span id="tShowAi">OFF</span></label>
+      <label class="toggle">Som<span id="tSound">ON</span></label>
+      <label class="toggle">Números de dano<span id="tShowDmg">ON</span></label>
+    </div>
+    <div class="start-actions">
+      <button class="btn-big" id="btnStart">▶ Entrar na arena</button>
+      <button class="btn-outline" id="btnFullscreen">⛶ Tela cheia</button>
+    </div>
+    <div class="footer">Arena 100×100 blocos · pilares bloqueiam tiros e visão · câmera centrada no jogador</div>
+  </div>
+</div>
+
+<div id="pauseScreen" class="screen">
+  <div class="card" style="max-width:520px">
+    <div class="header" style="justify-content:center"><div class="title"><h1 style="font-size:28px">Pausado</h1></div></div>
+    <div class="pause-inner">
+      <div class="platform-picker" id="platPause"></div>
+      <div class="toggles" id="pauseToggles"></div>
+      <div class="controls-panel" id="pauseControls"></div>
+      <div class="actions">
+        <button class="btn-big" id="btnResume">Continuar <kbd style="margin-left:6px">Esc</kbd></button>
+        <button class="btn-outline" id="btnRestartPause">Reiniciar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="gameOverScreen" class="screen">
+  <div class="card">
+    <div class="header" style="justify-content:center"><div class="title"><div class="tag" style="color:#f472b6">Tanque destruído</div><h1 style="font-size:32px">Fim de jogo</h1></div></div>
+    <div id="goStats" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px"></div>
+    <div style="margin-bottom:10px;text-align:center;color:#cbd5e0;font-size:13px">Última arma: <span id="goWeapon" style="color:#fff;font-weight:700">—</span></div>
+    <div id="goUpgrades" style="display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:16px"></div>
+    <div class="start-actions">
+      <button class="btn-big" id="btnRestart">↻ Jogar novamente</button>
+      <button class="btn-outline" id="btnMenu">Menu</button>
+    </div>
+  </div>
+</div>
+
+<div id="panels" class="panels"></div>
+<script src="script.js"></script>
+</body>
+</html>
