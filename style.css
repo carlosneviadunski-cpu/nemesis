@@ -1,4 +1,4 @@
-/* Reset básico e fontes estilo arcade/geométrico */
+/* Reset básico */
 * {
     margin: 0;
     padding: 0;
@@ -17,23 +17,37 @@ body {
     line-height: 1.6;
 }
 
-/* Barra de Navegação Superior */
-.navbar {
-    background-color: #00b2e1; /* Azul tanque aliado */
-    border-bottom: 4px solid #555555;
-    padding: 15px 40px;
+/* Estrutura Principal com Menu Lateral */
+.layout-principal {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    min-height: 100vh;
+}
+
+/* Menu Vertical Fixo à Esquerda */
+.sidebar {
+    width: 230px;
+    background-color: #00b2e1; /* Azul tanque aliado */
+    border-right: 4px solid #555555;
+    padding: 25px 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    z-index: 100;
 }
 
 .logo {
     color: #ffffff;
     font-weight: 900;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
+    text-align: center;
     letter-spacing: 2px;
     text-transform: uppercase;
-    /* Contorno preto clássico dos textos do Diep.io */
+    padding-bottom: 15px;
+    border-bottom: 3px solid #555555;
     text-shadow: 
         -2px -2px 0 #555555,  
          2px -2px 0 #555555,
@@ -41,34 +55,51 @@ body {
          2px  2px 0 #555555;
 }
 
-.nav-links {
+.nav-links-vertical {
     list-style: none;
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    gap: 15px;
 }
 
-.nav-links a {
+.nav-links-vertical a {
+    display: block;
     background-color: #ffe869; /* Amarelo Quadrado XP */
     color: #333333;
     font-weight: 800;
     text-decoration: none;
     text-transform: uppercase;
     font-size: 0.9rem;
-    padding: 8px 18px;
+    text-align: center;
+    padding: 12px 10px;
     border-radius: 6px;
     border: 3px solid #555555;
     transition: transform 0.15s ease, background-color 0.15s ease;
 }
 
-.nav-links a:hover {
-    background-color: #ffeb85;
-    transform: scale(1.08);
+.nav-links-vertical a:hover,
+.nav-links-vertical a.ativo {
+    background-color: #f14e54; /* Destaque vermelho ao passar o mouse */
+    color: #ffffff;
+    transform: translateX(5px);
+    text-shadow: 
+        -1px -1px 0 #555555,  
+         1px -1px 0 #555555,
+        -1px  1px 0 #555555,
+         1px  1px 0 #555555;
+}
+
+/* Área de Conteúdo à Direita */
+.conteudo-principal {
+    margin-left: 230px; /* Mesmo tamanho da largura da sidebar */
+    flex: 1;
+    width: calc(100% - 230px);
 }
 
 /* Cabeçalho Principal */
 .cabecalho-itens {
-    background-color: rgba(255, 255, 255, 0.75);
-    padding: 30px 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,10 +107,9 @@ body {
     border-bottom: 4px solid #555555;
 }
 
-/* Logo em formato de tanque redondo */
 .cabecalho_imagem {
-    width: 95px;
-    height: 95px;
+    width: 85px;
+    height: 85px;
     border-radius: 50%;
     object-fit: cover;
     border: 4px solid #555555;
@@ -91,7 +121,7 @@ body {
 }
 
 .titulo_site {
-    font-size: 2.5rem;
+    font-size: 2.3rem;
     font-weight: 900;
     color: #ffffff;
     letter-spacing: 3px;
@@ -114,12 +144,12 @@ body {
 
 .sociais {
     display: flex;
-    gap: 15px;
+    gap: 12px;
 }
 
 .sociais-icone {
-    width: 40px;
-    height: 40px;
+    width: 38px;
+    height: 38px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #555555;
@@ -134,36 +164,36 @@ body {
 /* Seção Banner */
 .banner1 {
     width: 100%;
-    max-height: 380px;
+    max-height: 320px;
     overflow: hidden;
     border-bottom: 4px solid #555555;
 }
 
 .escola-image {
     width: 100%;
-    height: 380px;
+    height: 320px;
     object-fit: cover;
 }
 
-/* Seção de Monstros / Missões */
+/* Seção das Evoluções / Missões */
 .estudante {
-    padding: 40px 20px;
-    max-width: 1200px;
+    padding: 40px 30px;
+    max-width: 1300px;
     margin: 0 auto;
 }
 
 .estudante_titulo {
     text-align: center;
-    font-size: 2rem;
+    font-size: 1.8rem;
     font-weight: 900;
     color: #ffffff;
-    background-color: #f14e54; /* Vermelho tanque inimigo / Triângulo */
+    background-color: #f14e54;
     border: 4px solid #555555;
     border-radius: 8px;
     padding: 12px 25px;
     text-transform: uppercase;
     letter-spacing: 3px;
-    margin-bottom: 40px;
+    margin-bottom: 35px;
     text-shadow: 
         -1.5px -1.5px 0 #555555,  
          1.5px -1.5px 0 #555555,
@@ -171,20 +201,23 @@ body {
          1.5px  1.5px 0 #555555;
 }
 
-/* Grade de Cards */
+/* GRADE FIXA EM 4 COLUNAS VERTICAIS */
 .estudantes_todos {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
 }
 
-/* Card Individual (Estilo polígono / upgrade menu) */
+/* Card Individual */
 .estudante-div {
     background-color: #e6e6e6;
     border: 4px solid #555555;
     border-radius: 10px;
-    padding: 20px;
-    text-align: center;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
@@ -196,22 +229,24 @@ body {
 
 .estudante-imagem {
     width: 100%;
-    height: 200px;
+    height: 170px;
     object-fit: cover;
     border-radius: 6px;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     border: 3px solid #555555;
 }
 
 .estudante-nome {
-    font-size: 1.4rem;
+    width: 100%;
+    text-align: center;
+    font-size: 1.15rem;
     font-weight: 900;
     color: #ffffff;
     background-color: #00b2e1;
     border: 3px solid #555555;
     border-radius: 6px;
-    padding: 5px 10px;
-    margin-bottom: 15px;
+    padding: 5px 8px;
+    margin-bottom: 12px;
     letter-spacing: 1px;
     text-transform: uppercase;
     text-shadow: 
@@ -221,7 +256,6 @@ body {
          1.5px  1.5px 0 #555555;
 }
 
-/* Alterna a cor do título dos cards pares para o roxo dos Pentágonos */
 .estudante-div:nth-child(even) .estudante-nome {
     background-color: #768dfc;
 }
@@ -229,13 +263,13 @@ body {
 .icones-card {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    padding-top: 10px;
+    gap: 12px;
+    padding-top: 5px;
 }
 
 .estudante-icone {
-    width: 34px;
-    height: 34px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid #555555;
@@ -248,16 +282,16 @@ body {
 
 /* Seção de Vídeo */
 .container-video {
-    margin-top: 60px;
+    margin-top: 50px;
     text-align: center;
-    background-color: #ffe869; /* Amarelo Quadrado XP */
-    padding: 30px;
+    background-color: #ffe869;
+    padding: 25px;
     border-radius: 10px;
     border: 4px solid #555555;
 }
 
 .titulo-video {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     font-weight: 900;
     color: #ffffff;
     text-transform: uppercase;
@@ -278,26 +312,26 @@ body {
 
 /* Rodapé */
 .escola {
-    background-color: #999999; /* Cor do cano dos tanques */
+    background-color: #999999;
     border-top: 4px solid #555555;
-    padding: 40px 20px;
+    padding: 35px 20px;
     text-align: center;
     margin-top: 50px;
     color: #ffffff;
 }
 
 .logo_rodape {
-    width: 75px;
-    height: 75px;
+    width: 70px;
+    height: 70px;
     border-radius: 50%;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     border: 4px solid #555555;
 }
 
 .escola-titulo {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
     text-shadow: 
         -1px -1px 0 #555555,  
          1px -1px 0 #555555,
@@ -318,6 +352,33 @@ body {
 .copyright, .politicas {
     color: #333333;
     font-weight: 700;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin-top: 5px;
+}
+
+/* Adaptação para telas menores (celulares/tablets) */
+@media (max-width: 1024px) {
+    .estudantes_todos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .layout-principal {
+        flex-direction: column;
+    }
+    .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        border-right: none;
+        border-bottom: 4px solid #555555;
+    }
+    .conteudo-principal {
+        margin-left: 0;
+        width: 100%;
+    }
+    .estudantes_todos {
+        grid-template-columns: 1fr;
+    }
 }
